@@ -1,0 +1,37 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* Uma fonte padrão para consistência */
+}
+
+/* Define o fundo escuro e a cor do texto para toda a aplicação */
+body {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Garante que o componente raiz do Angular ocupe no mínimo 100% da altura */
+app-root {
+  min-height: 100%;
+  display: block; // Comportamento de bloco para ocupar o espaço
+}
+
+/* Estilo global para o nosso novo botão de voltar */
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 2rem;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #fff;
+    color: #121212;
+  }
+}

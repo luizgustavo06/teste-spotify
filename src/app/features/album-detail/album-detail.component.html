@@ -1,0 +1,38 @@
+@if(isLoading()) {
+<div class="loading">Carregando detalhes do álbum...</div>
+} @else if(album()) {
+<div class="album-page">
+  <div class="album-header">
+    <img [src]="album().images[0]?.url" alt="Capa de {{ album().name }}" />
+    <div class="album-info">
+      <h1>{{ album().name }}</h1>
+      <p>
+        <strong>{{ album().artists[0].name }}</strong> •
+        {{ album().release_date | date : "yyyy" }}
+      </p>
+    </div>
+  </div>
+
+  <div class="track-list">
+    <a [routerLink]="['/artist', album().artists[0].id]" class="back-button"
+      >← Voltar para o artista</a
+    >
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Título</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(track of album().tracks.items; track track.id) {
+        <tr>
+          <td>{{ track.track_number }}</td>
+          <td>{{ track.name }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+}

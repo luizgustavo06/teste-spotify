@@ -1,0 +1,32 @@
+<div class="search-container">
+  <h1>Busque por seu artista favorito</h1>
+  <form (ngSubmit)="onSearch()">
+    <input 
+      type="text" 
+      placeholder="Nome do artista..."
+      [ngModel]="searchTerm()"
+      (ngModelChange)="searchTerm.set($event)"
+      name="searchTerm"
+    />
+    <button type="submit">Buscar</button>
+  </form>
+
+  @if (isLoading()) {
+    <div class="loading">Carregando...</div>
+  }
+
+  @if (noResults()) {
+    <div class="no-results">Nenhum resultado encontrado para "{{ searchTerm() }}"</div>
+  }
+
+  <div class="results-grid">
+  @for (artist of searchResults(); track artist.id) {
+    <div class="artist-card" [routerLink]="['/artist', artist.id]">
+      <img [src]="artist.images[0]?.url" alt="Foto de {{ artist.name }}">
+      <div class="card-info">
+        <span>{{ artist.name }}</span>
+      </div>
+    </div>
+  }
+</div>
+</div>

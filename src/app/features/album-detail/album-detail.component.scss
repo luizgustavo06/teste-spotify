@@ -1,0 +1,57 @@
+/* src/app/features/album-detail/album-detail.component.scss */
+:host {
+  color: #fff;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 4rem;
+}
+
+.album-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(#444, #121212);
+
+  img {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 4px 60px rgba(0,0,0,.5);
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  p {
+    margin-top: 0.5rem;
+    color: #b3b3b3;
+  }
+}
+
+.track-list {
+  padding: 2rem;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      text-align: left;
+      padding: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    th {
+      color: #b3b3b3;
+    }
+
+    td:first-child {
+      color: #b3b3b3;
+      width: 50px;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+/* src/app/features/artist-detail/artist-detail.component.scss */
+:host {
+  color: #fff;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 4rem;
+}
+
+.artist-header {
+  height: 340px;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  .header-overlay {
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 2rem;
+    width: 100%;
+
+    h1 {
+      font-size: 4rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .genres {
+      margin-top: 1rem;
+      span {
+        border: 1px solid #fff;
+        border-radius: 15px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        margin-right: 8px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.page-content {
+  padding: 2rem;
+  background: linear-gradient(rgba(0,0,0,0.6), #121212 40%);
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.album-card {
+  background-color: #181818;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #282828;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .album-name {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

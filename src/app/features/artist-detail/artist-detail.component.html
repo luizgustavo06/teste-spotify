@@ -1,0 +1,31 @@
+@if(isLoading()) {
+<div class="loading">Carregando detalhes do artista...</div>
+} @else if(artist()) {
+<div
+  class="artist-header"
+  [style.background-image]="'url(' + artist().images[0]?.url + ')'"
+>
+  <div class="header-overlay">
+    <h1>{{ artist().name }}</h1>
+    <p>{{ artist().followers.total | number }} seguidores</p>
+    <div class="genres">
+      @for(genre of artist().genres; track genre) {
+      <span>{{ genre }}</span>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="page-content">
+  <a routerLink="/" class="back-button">← Voltar para a busca</a>
+  <h2>Álbuns</h2>
+  <div class="albums-grid">
+    @for(album of albums(); track album.id) {
+    <div class="album-card" [routerLink]="['/album', album.id]">
+      <img [src]="album.images[0]?.url" alt="Capa de {{ album.name }}" />
+      <p class="album-name">{{ album.name }}</p>
+    </div>
+    }
+  </div>
+</div>
+}
