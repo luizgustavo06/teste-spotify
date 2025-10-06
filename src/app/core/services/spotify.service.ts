@@ -70,9 +70,9 @@ export class SpotifyService {
     );
   }
 
-  /**
-   * Busca um artista específico pelo seu ID.
-   */
+
+   // Busca um artista específico pelo seu ID.
+
   getArtistById(id: string): Observable<any> {
     return this.getAuthToken().pipe(
       switchMap((token) => {
