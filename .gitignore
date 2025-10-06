@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Diretório de dependências
+/node_modules
+
+# Arquivos de build e de saída
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Arquivos de configuração de IDEs
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
