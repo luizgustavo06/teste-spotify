@@ -99,6 +99,7 @@ export class SpotifyService {
       })
     );
   }
+  // Busca um álbum específico pelo seu ID.
   getAlbumById(id: string): Observable<any> {
     return this.getAuthToken().pipe(
       switchMap((token) => {
