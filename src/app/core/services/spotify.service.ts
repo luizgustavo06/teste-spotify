@@ -83,9 +83,8 @@ export class SpotifyService {
     );
   }
 
-  /**
-   * Busca os álbuns de um artista específico.
-   */
+   // Busca os álbuns de um artista específico.
+ 
   getArtistAlbums(id: string): Observable<any> {
     return this.getAuthToken().pipe(
       switchMap((token) => {
