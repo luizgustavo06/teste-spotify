@@ -27,6 +27,7 @@ export class AlbumDetailComponent implements OnInit {
     });
   }
 
+  //carrega os dados do álbum
   loadAlbumData(id: string) {
     this.isLoading.set(true);
     this.spotifyService.getAlbumById(id).subscribe({
