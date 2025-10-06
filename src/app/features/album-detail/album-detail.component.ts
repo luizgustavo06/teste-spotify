@@ -7,7 +7,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 @Component({
   selector: 'app-album-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, DatePipe], // Adicione DatePipe para formatar a data
+  imports: [CommonModule, RouterLink, DatePipe], 
   templateUrl: './album-detail.component.html',
   styleUrl: './album-detail.component.scss'
 })

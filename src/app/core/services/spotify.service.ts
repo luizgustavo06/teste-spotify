@@ -15,7 +15,6 @@ interface SpotifyTokenResponse {
 })
 export class SpotifyService {
   private http = inject(HttpClient);
-  // URLs OFICIAIS E CORRIGIDAS
     private authApiUrl = 'https://accounts.spotify.com/api/token';
   private dataApiUrl = 'https://api.spotify.com/v1';
 

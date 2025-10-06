@@ -1,27 +1,63 @@
-# SpotifyClone
+## Spotify
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+## ❯ Descrição do Projeto
 
-## Development server
+Este é um projeto feito, para conseguir pesquisar, os seus artistas preferidos, seus albuns e suas musicas, utilizando a API do spotify.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##  Tecnologias Utilizadas
 
-## Build
+* **Framework:** Angular v18+ 
+* **Arquitetura:** Standalone Components 
+* **Gerenciamento de Estado:** Angular Signals 
+* **Estilização:** SCSS 
+* **Roteamento:** Angular Router 
+* **API:** Spotify Public API 
+* **Deploy:** Vercel 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Como Rodar o Projeto Localmente
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Siga os passos abaixo para executar o projeto em sua máquina.
 
-## Running end-to-end tests
+**Pré-requisitos:**
+* Node.js (versão 18 ou superior)
+* Angular CLI (versão 18 ou superior)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**1. Clone o repositório:**
+```bash
+git clone https://github.com/luizgustavo06/teste-spotify.git
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+**2. Instale as dependências:**
+```bash
+npm install
+```
+
+**3. Configure as variáveis de ambiente:**
+Conforme solicitado, as credenciais da API do Spotify devem ser gerenciadas por meio de variáveis de ambiente.
+
+Crie o arquivo `src/environments/environment.ts` e adicione seu `Client ID` e `Client Secret`:
+
+```typescript
+// src/environments/environment.ts
+export const environment = {
+  production: false,
+  spotify: {
+    // Exemplo usando as suas credenciais salvas:
+    clientId: 'bba88f1de4b24af2b545ad9db44860b4',
+    clientSecret: '617eac89cf0f48a3b0167a1ff3e1d8f3'
+  }
+};
+```
+
+**4. Execute a aplicação:**
+```bash
+ng serve -o
+```
+
+A aplicação será iniciada e estará acessível em `http://localhost:4200/`.
