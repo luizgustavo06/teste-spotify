@@ -1,4 +1,3 @@
-// src/app/app.component.ts
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SpotifyService } from './core/services/spotify.service';
@@ -16,12 +15,12 @@ export class AppComponent implements OnInit {
   private spotifyService = inject(SpotifyService);
 
   ngOnInit(): void {
-   this.spotifyService.getAuthToken().subscribe({
+    this.spotifyService.searchArtists('Queen').subscribe({
       next: (response) => {
-        console.log('Autenticação bem-sucedida!', response);
+        console.log('Busca por artistas bem-sucedida!', response);
       },
       error: (err) => {
-        console.error('Erro na autenticação:', err);
+        console.error('Erro ao buscar artistas:', err);
       }
     });
   }
