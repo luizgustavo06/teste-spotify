@@ -14,7 +14,7 @@ interface SpotifyTokenResponse {
 // Interface para o que vamos guardar no LocalStorage
 interface StoredTokenInfo {
   token: string;
-  expiryTime: number; // Vamos guardar o timestamp de quando o token expira
+  expiryTime: number; 
 }
 
 @Injectable({
@@ -28,19 +28,14 @@ export class SpotifyService {
   private clientId = environment.spotify.clientId;
   private clientSecret = environment.spotify.clientSecret;
 
-  // ALTERADO: A chave do LocalStorage agora guarda um objeto
   private readonly TOKEN_INFO_KEY = 'spotify_token_info';
 
-  /**
-   * Obtém um token de autenticação VÁLIDO.
-   * Ele verifica se o token armazenado expirou antes de retornar.
-   */
+
   private getAuthToken(): Observable<string> {
     const storedTokenJSON = localStorage.getItem(this.TOKEN_INFO_KEY);
 
     if (storedTokenJSON) {
       const storedTokenInfo: StoredTokenInfo = JSON.parse(storedTokenJSON);
-      // VERIFICAÇÃO PRINCIPAL: Se o tempo atual for MENOR que o tempo de expiração, o token é válido.
       if (Date.now() < storedTokenInfo.expiryTime) {
         console.log('Usando token do cache (ainda válido).');
         return of(storedTokenInfo.token);
@@ -48,7 +43,6 @@ export class SpotifyService {
       console.log('Token do cache expirou.');
     }
 
-    // Se não há token ou ele expirou, busca um novo.
     console.log('Buscando novo token da API do Spotify...');
     const body = new HttpParams().set('grant_type', 'client_credentials');
     const authHeader = 'Basic ' + btoa(this.clientId + ':' + this.clientSecret);
@@ -61,9 +55,7 @@ export class SpotifyService {
       .post<SpotifyTokenResponse>(this.authApiUrl, body.toString(), { headers })
       .pipe(
         tap((response) => {
-          // LÓGICA DE SALVAMENTO: Calcula o tempo de expiração
-          // Date.now() está em milissegundos, expires_in em segundos.
-          // Adicionamos uma margem de segurança de 60 segundos.
+
           const expiryTime = Date.now() + (response.expires_in - 60) * 1000;
           const tokenInfo: StoredTokenInfo = {
             token: response.access_token,
